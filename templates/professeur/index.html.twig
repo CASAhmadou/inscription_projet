@@ -1,0 +1,34 @@
+
+<div class="card ml-5">
+<div class="card-body">
+    <h4 class="card-title">LISTE DES PROFESSEURS</h4>
+    <p class="card-text">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="<?= Constantes::WEB_ROOT."add-professeur"?>">
+          <i class="fa-solid fa-plus"></i>
+          </a>
+        <button class="text-light btn btn-info me-md-2" type="button">Nouveau</button>
+      </div>
+      
+      <table class="table table-striped table-bordered table-hover text-center">
+        <thead>
+          <tr>
+            <th class="col-4" scope="col">Nom Complet</th>
+            <th class="col-4" scope="col">Grade</th>
+            <th class="col-3" scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for prof in profs %}
+
+            <tr>
+              <td>{{prof.nomComplet}}</td>
+              <td>{{prof.grade}}</td>
+              <td>{{prof.sexe}}</td>
+            </tr>
+             {% endfor %} 
+        </tbody>
+      </table>
+    </p>
+</div>
+</div>

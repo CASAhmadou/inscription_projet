@@ -19,7 +19,7 @@ class Module
     private $nomModule;
 
     #[ORM\ManyToOne(targetEntity: Rpd::class, inversedBy: 'modules')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private $rpd;
 
     #[ORM\ManyToMany(targetEntity: Professeur::class, inversedBy: 'modules')]

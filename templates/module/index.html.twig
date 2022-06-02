@@ -1,0 +1,31 @@
+% extends 'base.html.twig' %}
+
+{% block title %}Hello ModuleController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<h1>LISTE DES MODULES</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Libelle</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for module in modules %}
+
+    <tr>
+      <td>{{module.libelle}}</td>
+    </tr>
+     {% endfor %} 
+  </tbody>
+</table>
+<div class="d-flex justify-content-center">
+{% do modules.setPageRange(10) %}
+{{knp_pagination_render(modules,'pagination.html.twig')}}
+</div>
+{% endblock %}
