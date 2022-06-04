@@ -1,0 +1,59 @@
+
+:root{
+    --color-one: #273B60;
+    --color-two: #009BC3;
+}
+
+/* .chart-container{
+    width: 50%;
+    margin: 20px;
+} */
+
+.c{
+color: var(--color-two);;
+}
+
+li a:hover{
+    color: var(--color-two);
+}
+.containt{
+    display: flex;
+    justify-content: space-between;
+}
+.icon{
+    padding: 2%;
+}
+
+i{
+    cursor: pointer;
+}
+/*.cadre{
+    display: flex;
+    margin: 10rem;
+} */
+        
+
+
+.root{
+    position: absolute;
+    left: 12rem;
+    transform: translateY(-50%);
+    border-radius: 6px;
+    height: 2.5rem;
+    text-align: center;    
+    line-height: 2.5rem;
+    width: 7.5rem;
+    background-color: var(--color-one);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0s;
+    opacity: 0;
+    pointer-events: none;
+    
+    
+}
+.root{
+    transition: all 0.5s ease;   
+    opacity: 1;
+    display: block;
+}
+
