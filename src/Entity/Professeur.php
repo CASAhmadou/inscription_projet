@@ -109,4 +109,37 @@ class Professeur extends Personne
 
         return $this;
     }
+    public function __toString()
+    {
+        return $this->getNomComplet();
+    }
 }
+
+
+
+// $builder
+// ->add('libelle')
+// ->add('niveau', ChoiceType::class, [
+//     'choices' => [
+//             'Autre...' => '',
+//             'Licence1' => 'L1',
+//             'Licence2' => 'L2',
+//             'Licence3' => 'L3',
+//             'Master1' => 'M1',
+//             'Master2' => 'M2',
+//             'Doctorat' => 'Doct',
+//             'required'=> false,
+//         ],
+//     ])
+// ->add('filliere', ChoiceType::class, [
+//     'choices' => Classe::$fillieres
+// ])
+
+// ->add('professeurs', EntityType::class, [
+//     'class' => Professeur::class,
+//     'multiple' => true,
+//     'expanded' => true,
+// ])
+
+
+// ;

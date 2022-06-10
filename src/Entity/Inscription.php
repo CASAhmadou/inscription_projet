@@ -120,4 +120,8 @@ class Inscription
 
         return $this;
     }
+    public function __toString()
+    {
+        return $this->getEtat();
+    }
 }

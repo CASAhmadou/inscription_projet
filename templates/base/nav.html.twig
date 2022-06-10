@@ -1,0 +1,83 @@
+
+      <!-- offcanvas navbar-->
+      <nav class="navbar navbar-light bg-light col-1">
+
+        <div class="container-fluid">
+          <button class="bg-primary navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas bg-primary offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="position-relative">
+              <img class="img-fluid rounded-circle" class="" style="width:5rem" src="{{ asset('images/LOGO.jpg') }}" alt="">
+              <button type="button" class="btn-close text-reset position-absolute top-0 end-0" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+           
+              <form class="d-flex">
+               <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Recherche">
+               <button class="text-light btn btn-outline-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </form>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+                <li class="nav-item">
+                  <a class="text-light nav-link active" aria-current="page" href="/">Accueil</a>
+                </li>
+                <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                <li class="nav-item">
+                  <a class="text-light nav-link" href="/etudiant">Inscription</a>
+                </li>
+                <li>
+                      <hr class="dropdown-divider">
+                </li>
+                <li class="nav-item">
+                  <a class="text-light nav-link" href="/professeur">Professeurs</a>
+                </li>
+                <li>
+                      <hr class="dropdown-divider">
+                </li>
+                <li class="nav-item">
+                  <a class="text-light nav-link" href="/classe">Classes</a>
+                </li>
+                <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                <li class="nav-item">
+                  <a class="text-light nav-link" href="/module">Modules</a>
+                </li>
+                <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                <li class="nav-item dropdown">
+                  <a class="text-light nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Demande Etudiants
+                  </a>
+                  <ul class="dropdown-menu bg-primary" aria-labelledby="offcanvasNavbarDropdown">
+                    <li><a class="text-light dropdown-item" href="/">Formulaire Demande</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="text-light dropdown-item" href="/demande">Liste Demandes</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                      <a class="text-light dropdown-item" href="/demande">Liste mes Demandes</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                      <a class="text-light dropdown-item" href="/demande">Demande à Traiter</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/746ce6113a.js" crossorigin="anonymous"></script>

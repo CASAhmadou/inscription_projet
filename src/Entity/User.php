@@ -27,6 +27,8 @@ class User extends Personne implements UserInterface, PasswordAuthenticatedUserI
     #[ORM\Column(type: 'string')]
     private $password;
 
+    public $confirm_password;
+
     public function getId(): ?int
     {
         return $this->id;

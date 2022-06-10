@@ -2,10 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\ClasseRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Rpd;
+use App\Entity\Professeur;
+use App\Entity\Inscription;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ClasseRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ClasseRepository::class)]
 class Classe
@@ -16,6 +20,7 @@ class Classe
     private $id;
 
     #[ORM\Column(type: 'string', length: 25)]
+    #Assert\Length(max=50)
     private $libelle;
 
     #[ORM\Column(type: 'string', length: 25)]
@@ -44,6 +49,16 @@ class Classe
     {
         return $this->id;
     }
+
+    public static $fillieres = [
+        'Choisir' => '','Dev Web'=>'Dev',
+        'Ref Digital' => 'Ref', 
+        'PHP' => 'php', 
+        'JavaScript' => 'JS', 
+        'Symfony' => 'Symf',
+        'Java' => 'java',
+        'Python' => 'python'
+    ];
 
     public function getLibelle(): ?string
     {
@@ -145,5 +160,9 @@ class Classe
         $this->professeur->removeElement($professeur);
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->getId();
     }
 }

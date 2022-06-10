@@ -25,6 +25,7 @@ class Module
     #[ORM\ManyToMany(targetEntity: Professeur::class, inversedBy: 'modules')]
     private $professeur;
 
+
     public function __construct()
     {
         $this->professeur = new ArrayCollection();
@@ -82,4 +83,9 @@ class Module
 
         return $this;
     }
+    public function __toString()
+    {
+        return $this->getNomModule();
+    }
+
 }

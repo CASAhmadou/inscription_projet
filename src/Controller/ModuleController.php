@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ModuleController extends AbstractController
 {
-    #[Route('/module', name: 'app_module')]
+    #[Route('/module', name: 'module')]
     public function index(): JsonResponse
     {
         return $this->json([

@@ -8,14 +8,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProfesseurController extends AbstractController
 {
-    #[Route('/professeur', name: 'app_professeur')]
+    #[Route('/professeur', name: 'professeur')]
     public function index(ProfesseurRepository $repo): Response
     {
         $profs=$repo->findAll();
         
         return $this->render('professeur/index.html.twig', [
             'controller_name' => 'ProfesseurController',
-            'prof' => $profs
+            'profs' => $profs
         ]);
     }
 }

@@ -3,28 +3,90 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.min.css">
+
+      {# <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('css/style.user.css') }}">
-       
+        #}
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
-
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+        {{ encore_entry_script_tags('app') }}
+      {% endblock %}
+        
     </head>
     <body>
-       
-        {% include ('nav.html.twig') %}
-        {# {% include ('classe/add.html.twig') %} #}
-        {% block body %}{% endblock %} 
- 
+      {# {% if not app.user %} #}
+      <div class="d-flex justify-content-around align-items-center">
+        <img class="img-fluid col-6 " style="width:15rem" src="{{ asset('images/logo.png') }}" alt="">
+        <h3>Great Innovation of the Technology's Solutions</h3>
+        <form class="d-flex">
+          <input class="form-control me-sm-2" type="text" placeholder="Recherche">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
 
-    <script src="https://kit.fontawesome.com/746ce6113a.js" crossorigin="anonymous"></script>
+      <div class="navbar d-flex justify-content-center bg-primary sticky-top">
+      
+        <ul class="nav nav-pills fw-bolder fs-4">
+      
+          <li class="nav-item">
+            <a class="text-light nav-link" aria-current="page" href="{{ path('home') }}">Accueil</a>
+          </li>
+
+            <li class="nav-item">
+              <a class="text-light nav-link" aria-current="page" href="{{ path('etudiant_inscription') }}">Inscription</a>
+            </li>
+
+        
+            <li class="nav-item">
+              <a class="text-light nav-link" aria-current="page" href="{{ path('professeur') }}">Professeurs</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="text-light nav-link" aria-current="page" href="{{ path('classe') }}">Classes</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="text-light nav-link" aria-current="page" href="{{ path('module') }}">Modules</a>   
+            </li>
+
+          <li class="nav-item dropdown">
+            <a class="text-light nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Demande Etudiants</a>
+            <ul class="bg-info dropdown-menu">
+
+                <li><a class="dropdown-item" href="{{ path('add_demande') }}">Formulaire Demande</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="text-light dropdown-item" href="{{ path('demande') }}">Liste Demandes</a>
+
+                <li><a class="text-light dropdown-item" href="{{ path('demande') }}">Liste mes Demandes</a>
+
+                <li><a class="text-light dropdown-item" href="{{ path('demande') }}">Demande à Traiter</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="text-light nav-link" href="{{ path('user_logout') }}">Deconnexion</a>
+          </li>
+        </ul>
+      </div>
+
+          
+    {# {% endif %} #}
+      {% include 'base/nav.html.twig' %}
+
+        <div class="container">
+          {% block body %}{% endblock %} 
+        </div>
+       
+
+      </body>
+{# <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    </body>
+    <script src="<?=Constantes::WEB_ROOT.'js/script.js'?>"></script> #}
 </html>

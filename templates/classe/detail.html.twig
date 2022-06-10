@@ -4,7 +4,7 @@
 
 {% block body %}
 
-  {# <div class="container col-8 mt-5"> #}
+  <div class="container col-8 mt-5">
     <div class="card ml-5">
       <div class="card-body">
         <h4 class="card-title">LISTE DES CLASSES</h4>
@@ -19,81 +19,47 @@
           <table class="table table-striped table-bordered table-hover text-center">
             <thead>
               <tr>
-                <th scope="col">Nom Complet</th>
-                <th scope="col">Grade</th>
-                {# <th scope="col"></th> #}
+                <th scope="col">Libelle</th>
+                <th scope="col">Niveau</th>
+                <th scope="col">Fillière</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {% for prof in profs %}
+           
                   <tr>
                       <td scope="row"></td>
                       <td></td>
-{# 
-                      <td></td> #}
+
+                      <td></td>
 
                       <td class="d-flex justify-content-around align-self-center">    
-                        <button type="submit" value class="btn btn-outline-primary">
-                          <i class="fa-solid fa-pen-to-square"></i>
+                        <button type="submit" class="btn btn-outline-primary">
+                          <a href="">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </a>
                         </button>
                         
                         <button type="submit" class="btn btn-outline-primary">
                           <i class="fa-solid fa-person-chalkboard"></i>
                         </button>
                     
-                      <form action="" method="POST">
+                        
                         <button type="submit" class="btn btn-outline-primary">
                           <input type="hidden" name="id" value="">
                           <i class="fa-solid fa-trash-can"></i>
                         </button>
-                      </form>
+                    
                       </td>
                   </tr>
-                {% endfor %}
-            </tbody>
+             </tbody>
           </table>
         </p>
       </div>
-    </div>
+    </div> 
     {# <div class='d-flex justify-content-center'>
-        {% do profs.setPageRange(2) %}
+        {% do classes.setPageRange(2) %}
         {{ knp_pagination_render(classes, 'base/pagination.html.twig') }}
     </div> #}
 
 {% endblock %}
-
-{# <div class="card ml-5">
-<div class="card-body">
-    <h4 class="card-title">LISTE DES PROFESSEURS</h4>
-    <p class="card-text">
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a href="">
-          <i class="fa-solid fa-plus"></i>
-          </a>
-        <button class="text-light btn btn-info me-md-2" type="button">Nouveau</button>
-      </div>
-      
-      <table class="table table-striped table-bordered table-hover text-center">
-        <thead>
-          <tr>
-            <th class="col-4" scope="col">Nom Complet</th>
-            <th class="col-4" scope="col">Grade</th>
-            <th class="col-3" scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-            {% for prof in profs %}
-
-            <tr>
-              <td>{{prof.nomComplet}}</td>
-              <td>{{prof.grade}}</td>
-              <td>{{prof.sexe}}</td>
-            </tr>
-             {% endfor %} 
-        </tbody>
-      </table>
-    </p>
-</div>
-</div> #}
-

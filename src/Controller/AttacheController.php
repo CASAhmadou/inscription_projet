@@ -9,11 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class AttacheController extends AbstractController
 {
     #[Route('/attache', name: 'app_attache')]
-    public function index(): JsonResponse
+    public function index()
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/AttacheController.php',
-        ]);
+        return $this->render('attache/index.html.twig');
+        // return $this->json([
+        //     'message' => 'Welcome to your new controller!',
+        //     'path' => 'src/Controller/AttacheController.php',
+        // ]);
     }
 }

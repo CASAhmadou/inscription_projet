@@ -1,22 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ClasseController!{% endblock %}
-
 {% block body %}
 
-<div class="container col-8 mt-5">
-<div class="card ml-5">
-  <div class="card-body">
-    <h4 class="card-title">LISTE DES CLASSES</h4>
-    <p class="card-text">
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a href="">
-          <i class="fa-solid fa-plus"></i>
-        </a>
-        <button class="text-light btn btn-info me-md-2" type="button">Nouvelle</button>
-      </div>
-    
-      <table class="table table-striped table-bordered table-hover text-center">
+  {# <div class="container col-8 mt-5"> #}
+    <div class="card ml-5">
+      <div class="card-body">
+        <h4 class="card-title">LISTE DES CLASSES</h4>
+        <p class="card-text">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end sticky">
+            <a href="{{ path('add_classe') }}">
+              <i class="fa-solid fa-plus"></i>
+            </a>
+            <button class="text-light btn btn-primary me-md-2" type="button">Nouvelle</button>
+          </div>
+        
+          <table class="table table-striped table-bordered table-hover text-center">
             <thead>
               <tr>
                 <th scope="col">Libelle</th>
@@ -28,32 +26,41 @@
             <tbody>
               {% for classe in classes %}
                   <tr>
-                      <td scope="row">{{ classe.libelle}}</td>
+                      <td scope="row">{{ classe.libelle }}</td>
                       <td>{{ classe.niveau}}</td>
-                      <td>{{ classe.filliere}}</td>
+
+                      <td>{{ classe.filliere }}</td>
+                        {# {{ path('detail_classe', {'id': 'classe.id'}) }} #}
                       <td class="d-flex justify-content-around align-self-center">    
-                        <button type="submit" value class="btn btn-outline-info">
-                          <i class="fa-solid fa-pen-to-square"></i>
+                        <button type="submit" class="btn btn-outline-primary">
+                          <a href=" {{ path('edit_classe', {'id': classe.id}) }}">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </a>
                         </button>
-                        <button type="submit" class="btn btn-outline-info">
+                        
+                        <button type="submit" class="btn btn-outline-primary">
                           <i class="fa-solid fa-person-chalkboard"></i>
                         </button>
                     
-                    <form action="" method="POST">
-                      <button type="submit" class="btn btn-outline-info">
-                        <input type="hidden" name="id" value="<?= $classe->id?>">
-                        <i class="fa-solid fa-trash-can"></i>
-                      </button>
-                    </form>
+                        <button type="submit" class="btn btn-outline-primary">
+                          <input type="hidden" name="id" value="">
+                          <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    
                       </td>
                   </tr>
-              {% endfor %}
+                {% endfor %}
             </tbody>
-      </table>
-    </p>
-  </div>
-</div>
-</div>
+          </table>
+        </p>
+      </div>
+    </div>
+    <div class='d-flex justify-content-center'>
+        {% do classes.setPageRange(2) %}
+        {{ knp_pagination_render(classes, 'base/pagination.html.twig') }}
+    </div>
+
+{% endblock %}
     {# <h1>Hello {{ controller_name }}! ✅</h1>
 
     This friendly message is coming from:
@@ -65,7 +72,6 @@
 
 
 
-{% endblock %}
 
 {# 
 <div class="card ml-5">

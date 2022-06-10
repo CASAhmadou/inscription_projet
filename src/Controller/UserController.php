@@ -2,18 +2,26 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\AuthentificationType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
 {
-    #[Route('/user', name: 'app_user')]
-    public function index(): JsonResponse
-    {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/UserController.php',
-        ]);
+    #[Route('/connexion', name: 'user_login')]
+    public function login(){
+        return $this->render('base/index.html.twig');
+    }
+
+    #[Route('/accueil', name: 'accueil_user')]
+    public function accueil(){
+        return $this->render('base/index.html.twig');
+    }
+
+    #[Route('/deconnexion', name: 'user_logout')]
+    public function logout(){
+        return $this->render('user/index.html.twig');
     }
 }
