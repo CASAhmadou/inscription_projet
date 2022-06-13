@@ -7,6 +7,7 @@ use App\Entity\Inscription;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class InscriptionType extends AbstractType
 {
@@ -15,33 +16,33 @@ class InscriptionType extends AbstractType
         $builder
             ->add('etudiant')
             ->add('classe')
-            ->add('anneeScolaire')
-        ;
+            ->add('anneeScolaire');
+        
 
-        $builder
-            ->add('libelle')
-            ->add('niveau', ChoiceType::class, [
-                'choices' => [
-                        'Autre...' => '',
-                        'Licence1' => 'L1',
-                        'Licence2' => 'L2',
-                        'Licence3' => 'L3',
-                        'Master1' => 'M1',
-                        'Master2' => 'M2',
-                        'Doctorat' => 'Doct',
-                        'required'=> false,
-                    ],
-                ])
-            ->add('filliere', ChoiceType::class, [
-                'choices' => Classe::$fillieres
-            ])
+        // $builder
+        //     ->add('libelle')
+        //     ->add('niveau', ChoiceType::class, [
+        //         'choices' => [
+        //                 'Autre...' => '',
+        //                 'Licence1' => 'L1',
+        //                 'Licence2' => 'L2',
+        //                 'Licence3' => 'L3',
+        //                 'Master1' => 'M1',
+        //                 'Master2' => 'M2',
+        //                 'Doctorat' => 'Doct',
+        //                 'required'=> false,
+        //             ],
+        //         ])
+        //     ->add('filliere', ChoiceType::class, [
+        //         'choices' => Classe::$fillieres
+        //     ])
 
-            ->add('professeurs', EntityType::class, [
-                'class' => Professeur::class,
-                'multiple' => true,
-                'expanded' => true,
-            ])           
-        ;
+        //     ->add('professeurs', EntityType::class, [
+        //         'class' => Professeur::class,
+        //         'multiple' => true,
+        //         'expanded' => true,
+        //     ])           
+        // ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

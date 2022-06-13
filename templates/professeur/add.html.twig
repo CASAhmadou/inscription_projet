@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% form_theme formClasse 'bootstrap_5_layout.html.twig' %}
+{% form_theme formProfesseur 'bootstrap_5_layout.html.twig' %}
 
 {% block body %} 
 
@@ -13,19 +13,18 @@
       <p class="card-text ml-3">
 
       
-        {{ form_start(formClasse) }}
+        {{ form_start(formProfesseur) }}
       
-          {{ form_widget(formClasse) }}
+          {{ form_row(formProfesseur.nomComplet, {'attr': {
+              'placeholder': "nom et prenom"} } )}}
+
+          {{ form_row(formProfesseur.grade) }}
 
             <button type="submit" class="btn btn-primary">
-              {% if editClasse %}
-                Enregistrer
-              {% else %}
                   Envoyer
-              {% endif %}
             </button>
           
-        {{ form_end(formClasse) }}
+        {{ form_end(formProfesseur) }}
 
       </p>
     </div>

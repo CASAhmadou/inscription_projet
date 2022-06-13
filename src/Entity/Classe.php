@@ -163,6 +163,6 @@ class Classe
     }
     public function __toString()
     {
-        return $this->getId();
+        return $this->getLibelle();
     }
 }

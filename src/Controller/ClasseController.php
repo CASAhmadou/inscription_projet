@@ -4,17 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Classe;
 use App\Form\ClasseType;
-use App\Entity\Professeur;
-use App\Form\ProfesseurType;
-use Doctrine\ORM\EntityManager;
 use App\Repository\ClasseRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -29,7 +24,7 @@ class ClasseController extends AbstractController{
         $pagis = $paginator->paginate(
             $cl,
             $request->query->getInt('page',1),
-            10
+            8
         );
         return $this->render('classe/index.html.twig', [
             'controller_name' => 'ClasseController',
@@ -46,13 +41,13 @@ class ClasseController extends AbstractController{
       
         // dd($cl);
         if(!$classe){
-             $classe= new Professeur();
+             $classe= new Classe();
         }
 
         // $classe->setLibelle('champ de libellé')
         //         ->setFilliere('champ de fillière');
 
-        $form = $this->createForm(ProfesseurType::class, $classe);   
+        $form = $this->createForm(ClasseType::class, $classe);   
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -70,10 +65,10 @@ class ClasseController extends AbstractController{
         ]);   
     }
 
-    #[Route('/classe/{id}', name: 'detail_classe')]
-    public function detail(Classe $classe, ClasseRepository $rep, SessionInterface $session)
-    {
-        $rep->findAll();
-        return $this->render('classe/detail.html.twig');
-    }
+    // #[Route('/classe/{id}', name: 'detail_classe')]
+    // public function detail(Classe $classe, ClasseRepository $rep, SessionInterface $session)
+    // {
+    //     $rep->findAll();
+    //     return $this->render('classe/detail.html.twig');
+    // }
 }

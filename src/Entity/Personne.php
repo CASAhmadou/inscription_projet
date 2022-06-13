@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\PersonneRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PersonneRepository;
+use Doctrine\ORM\Mapping\InheritanceType;
+use Doctrine\ORM\Mapping\DiscriminatorMap;
+use Doctrine\ORM\Mapping\DiscriminatorColumn;
 
 #[ORM\Entity(repositoryClass: PersonneRepository::class)]
-#InheritanceType("JOINED")
-#DiscriminatorColumn(name="discr", type="string")
-#DiscriminatorMap({"person" = "Person", "user" = "User", "professeur" = "Professeur", "attache" = "Attache", "etudiant" = "Etudiant", "rpd" = "Rpd"})
+#[ORM\InheritanceType("JOINED")]
+#[ORM\DiscriminatorColumn(name:"discr", type:"string")]
+#[ORM\DiscriminatorMap(["personne" => "Personne", "user" => "User", "professeur" => "Professeur", "attache" => "Attache", "etudiant" => "Etudiant", "rpd" => "Rpd"])]
 
 class Personne
 {

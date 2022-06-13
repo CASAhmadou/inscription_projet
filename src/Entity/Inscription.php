@@ -22,15 +22,15 @@ class Inscription
     private $demandes;
 
     #[ORM\ManyToOne(targetEntity: Attache::class, inversedBy: 'inscriptions')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private $attache;
 
     #[ORM\ManyToOne(targetEntity: Classe::class, inversedBy: 'inscriptions')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private $classe;
 
     #[ORM\ManyToOne(targetEntity: AnneeScolaire::class, inversedBy: 'inscriptions')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private $anneeScolaire;
 
     public function __construct()
@@ -54,36 +54,7 @@ class Inscription
 
         return $this;
     }
-
-    /**
-     * @return Collection<int, Demande>
-     */
-    public function getDemandes(): Collection
-    {
-        return $this->demandes;
-    }
-
-    public function addDemande(Demande $demande): self
-    {
-        if (!$this->demandes->contains($demande)) {
-            $this->demandes[] = $demande;
-            $demande->setInscription($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDemande(Demande $demande): self
-    {
-        if ($this->demandes->removeElement($demande)) {
-            // set the owning side to null (unless already changed)
-            if ($demande->getInscription() === $this) {
-                $demande->setInscription(null);
-            }
-        }
-
-        return $this;
-    }
+    
 
     public function getAttache(): ?Attache
     {

@@ -22,18 +22,6 @@ class Demande
     #[ORM\Column(type: 'date')]
     private $date;
 
-    #[ORM\ManyToOne(targetEntity: Inscription::class, inversedBy: 'demandes')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $inscription;
-
-    #[ORM\ManyToOne(targetEntity: Etudiant::class, inversedBy: 'demandes')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $etudiant;
-
-    #[ORM\ManyToOne(targetEntity: Rpd::class, inversedBy: 'demandes')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $rpd;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -75,41 +63,7 @@ class Demande
         return $this;
     }
 
-    public function getInscription(): ?Inscription
-    {
-        return $this->inscription;
-    }
-
-    public function setInscription(?Inscription $inscription): self
-    {
-        $this->inscription = $inscription;
-
-        return $this;
-    }
-
-    public function getEtudiant(): ?Etudiant
-    {
-        return $this->etudiant;
-    }
-
-    public function setEtudiant(?Etudiant $etudiant): self
-    {
-        $this->etudiant = $etudiant;
-
-        return $this;
-    }
-
-    public function getRpd(): ?Rpd
-    {
-        return $this->rpd;
-    }
-
-    public function setRpd(?Rpd $rpd): self
-    {
-        $this->rpd = $rpd;
-
-        return $this;
-    }
+   
     public function __toString()
     {
         return $this->getId();

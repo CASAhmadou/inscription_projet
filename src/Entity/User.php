@@ -13,10 +13,6 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 class User extends Personne implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
-    private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $email;
@@ -29,10 +25,6 @@ class User extends Personne implements UserInterface, PasswordAuthenticatedUserI
 
     public $confirm_password;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getEmail(): ?string
     {
