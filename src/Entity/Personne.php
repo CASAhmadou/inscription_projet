@@ -71,6 +71,6 @@ class Personne
     }
     public function __toString()
     {
-        return $this->getId();
+        return $this->getNomComplet();
     }
 }

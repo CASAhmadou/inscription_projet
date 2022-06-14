@@ -15,7 +15,7 @@ class Inscription
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\ManyToOne(targetEntity: Etudiant::class, inversedBy: 'inscriptions')]
+    #[ORM\ManyToOne(targetEntity: Etudiant::class, inversedBy: 'inscriptions',cascade:["persist"])]
     private $etudiant;
 
     #[ORM\OneToMany(mappedBy: 'inscription', targetEntity: Demande::class)]

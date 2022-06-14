@@ -2,14 +2,36 @@
 
 {% block body %}
 
-    <h1>Inscription</h1>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end sticky">
+    <a href="{{ path('etudiant_reinscription') }}">
+<button class="text-light btn btn-primary me-md-2" type="button">Réinscription</button>
+</a>
+</div>
 
-    {{ form_start(form) }}
+    <div class="container-fluid d-flex justify-content-center mt-5">
 
-    {{ form_widget(form) }}
+      <div class="card col-6">
+        <div class="card-body">
 
-    <button type="submit" class="btn btn-success">se Connecter</button>
-    
-    {{ form_end(form) }}
+        <h1>Inscription</h1>
+
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+
+        <button type="submit" class="btn btn-primary"> Inscription
+        {# {% if reinscri %}
+            Inscrire
+      {% else %}
+          Reinscrire
+      {% endif %} #}
+           </button>
+
+        {{ form_end(form) }}
+
+    </div>
+    </div>
+        <img class="img-fluid col-6" src="{{ asset('images/students.png') }}" alt="">
+    </div>
 
 {% endblock %}  

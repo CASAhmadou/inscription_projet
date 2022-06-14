@@ -16,9 +16,8 @@ class RpdFixtures extends Fixture
     }
     public function load(ObjectManager $manager): void
     {
-        // $roles=["ROLE_USER","ROLE_RP","ROLE_AC"];
         // $plainPassword = 'cas@123';
-        // for ($i = 1; $i <=10; $i++) {
+        // for ($i = 1; $i <=3; $i++) {
         // $user = new Rpd();
         // $user->setNomComplet('Nom et Prenom'.$i);
         // $user->setEmail('rpd'.$i."@gmail.com");

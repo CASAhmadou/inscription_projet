@@ -22,6 +22,6 @@ class UserController extends AbstractController
 
     #[Route('/deconnexion', name: 'user_logout')]
     public function logout(){
-        return $this->render('user/index.html.twig');
+        return $this->redirectToRoute('app_login');
     }
 }

@@ -22,11 +22,11 @@ class ClasseType extends AbstractType
             ->add('fillieres', ChoiceType::class, [
                    'choices' => Classe::$fillieres,
             ])
-            // ->add('professeur', EntityType::class, [
-            //     'class' => Professeur::class,
-            //     'multiple'=>true,
-            //     'expanded'=>true
-            // ])
+            ->add('professeur', EntityType::class, [
+                'class' => Professeur::class,
+                'multiple'=>true,
+                'expanded'=>true
+            ])
         ;
     }
 

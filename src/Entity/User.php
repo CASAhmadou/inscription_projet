@@ -14,13 +14,13 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 class User extends Personne implements UserInterface, PasswordAuthenticatedUserInterface
 {
 
-    #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[ORM\Column(type: 'string', length: 180, unique: true, nullable: true)]
     private $email;
 
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
-    #[ORM\Column(type: 'string')]
+    #[ORM\Column(type: 'string', nullable: true)]
     private $password;
 
     public $confirm_password;

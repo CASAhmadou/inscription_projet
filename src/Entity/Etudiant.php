@@ -14,7 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Etudiant extends User
 {
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $matricule;
 
     #[ORM\OneToMany(mappedBy: 'etudiant', targetEntity: Inscription::class)]
@@ -71,6 +71,6 @@ class Etudiant extends User
 
     public function __toString()
     {
-        return $this->getId();
+        return $this->getNomComplet();
     }
 }
