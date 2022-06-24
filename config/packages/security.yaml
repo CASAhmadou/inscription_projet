@@ -39,8 +39,22 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/classe, roles: [ROLE_RPD,ROLE_AC] }
+         - { path: ^/classe/add, roles : ROLE_RPD }
+         - { path: ^/module, roles : ROLE_RPD }
+        # - { path: ^/module/add, roles : ROLE_RPD }
+         - { path: ^/professeur, roles : ROLE_RPD }
+         - { path: ^/professeur/add, roles : ROLE_RPD }
+         - { path: ^/inscription, roles: ROLE_AC }
+         - { path: ^/reinscription, roles: ROLE_AC }
+         - { path: ^/etudiant, roles: ROLE_ETUDIANT }
+        # - { path: ^/demande/etu, roles: ROLE_ETUDIANT }
+        # - { path: ^/demande/new, roles: ROLE_ETUDIANT }
         # - { path: ^/profile, roles: ROLE_USER }
+
+    # role_hierarchy:
+    #     ROLE_EDITOR: ROLE_USER
+    #     ROLE_ADMIN: ROLE_EDITOR
 
 when@test:
     security:

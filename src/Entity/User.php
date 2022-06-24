@@ -14,13 +14,13 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 class User extends Personne implements UserInterface, PasswordAuthenticatedUserInterface
 {
 
-    #[ORM\Column(type: 'string', length: 180, unique: true, nullable: true)]
+    #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $email;
 
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
-    #[ORM\Column(type: 'string', nullable: true)]
+    #[ORM\Column(type: 'string')]
     private $password;
 
     public $confirm_password;
@@ -55,7 +55,7 @@ class User extends Personne implements UserInterface, PasswordAuthenticatedUserI
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_ETUDIANT';
 
         return array_unique($roles);
     }

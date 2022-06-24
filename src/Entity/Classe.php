@@ -20,13 +20,15 @@ class Classe
     private $id;
 
     #[ORM\Column(type: 'string', length: 25)]
-    #Assert\Length(max=50)
+    #[Assert\NotBlank(message:'le libelle ne doit pas etre vide')]
     private $libelle;
 
     #[ORM\Column(type: 'string', length: 25)]
+    #[Assert\NotBlank(message:'veuillez choisir un niveau')]
     private $niveau;
 
     #[ORM\Column(type: 'string', length: 50)]
+    #[Assert\NotBLank(message:'veuillez choisir une filiere')]
     private $filliere;
 
     #[ORM\OneToMany(mappedBy: 'classe', targetEntity: Inscription::class)]

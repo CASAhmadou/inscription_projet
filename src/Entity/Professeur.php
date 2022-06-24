@@ -7,19 +7,20 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProfesseurRepository;
-
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProfesseurRepository::class)]
 class Professeur extends Personne
 {
     
     #[ORM\Column(type: 'string', length: 25)]
+    #[Assert\NotBlank(message:'le grade ne doit pas etre vide')]
     private $grade;
 
-    #[ORM\ManyToMany(targetEntity: Classe::class, mappedBy: 'professeur')]
+    #[ORM\ManyToMany(targetEntity: Classe::class, mappedBy: 'professeur',cascade:['persist'])]
     private $classes;
 
-    #[ORM\ManyToMany(targetEntity: Module::class, mappedBy: 'professeur')]
+    #[ORM\ManyToMany(targetEntity: Module::class, mappedBy: 'professeur',cascade:['persist'])]
     private $modules;
 
     #[ORM\ManyToOne(targetEntity: Rpd::class, inversedBy: 'professeurs')]

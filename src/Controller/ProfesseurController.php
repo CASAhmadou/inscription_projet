@@ -22,7 +22,7 @@ class ProfesseurController extends AbstractController
         $pagis = $paginator->paginate(
             $profs,
             $request->query->getInt('page',1),
-            8
+            5
         );
         
         return $this->render('professeur/index.html.twig', [

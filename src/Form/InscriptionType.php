@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping\Entity;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -20,9 +21,15 @@ class InscriptionType extends AbstractType
     {
         $builder
         ->add('anneeScolaire')
+        
         ->add('etudiant', EtudiantType::class)
+
+        ->add('etudiant',CollectionType::class,[
+            'entry_type' => EtudiantType::class,
+            'entry_options' => ['label' => false],
+        ])
+
         ->add('classe')
-        ->add('anneeScolaire')
         ;
         //->add('libelle');
 

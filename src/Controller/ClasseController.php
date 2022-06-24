@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Classe;
 use App\Form\ClasseType;
 use App\Repository\ClasseRepository;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,10 +18,11 @@ class ClasseController extends AbstractController{
     #[Route('/classe', name: 'classe')]
     public function index(
         ClasseRepository $rep, SessionInterface $session,
-        PaginatorInterface $paginator, Request $request
+        PaginatorInterface $paginator, Request $request, UserRepository $users
         ): Response
     {
-        $cl=$rep->findAll();
+        //$cl=$rep->findAll();
+        $cl = $rep->findBy(array(), array('id' => 'desc'));
         $pagis = $paginator->paginate(
             $cl,
             $request->query->getInt('page',1),
@@ -29,7 +31,8 @@ class ClasseController extends AbstractController{
         return $this->render('classe/index.html.twig', [
             'controller_name' => 'ClasseController',
             'classes'=>$cl,
-            'classes'=>$pagis
+            'classes'=>$pagis,
+            'users' => $users->findAll()
         ]);
     }
 
